@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recupera tus derechos AIE · Toni Mateos</title>
+<meta name="description" content="¿Tienes grabaciones publicadas que no cobras? Buscamos tus canciones no registradas en la AIE y las registramos por ti. Investigación gratis, solo cobramos a éxito.">
+<style>
+  :root{
+    --bg:#0f2027; --bg2:#203a43; --teal:#7fd1c4; --gold:#ffd45e;
+    --ink:#14323b; --card:rgba(255,255,255,.06); --line:rgba(255,255,255,.13);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Helvetica Neue",Arial,sans-serif;color:#eaf3f5;
+    background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  section{padding:76px 0}
+  h1,h2,h3{font-weight:800;line-height:1.1}
+  .hi{color:var(--gold)}
+  .teal{color:var(--teal)}
+
+  /* HERO */
+  header{position:relative;padding:120px 0 130px;text-align:center;overflow:hidden}
+  header::before{content:"";position:absolute;inset:0;
+    background:url("img/hero-musico.jpg") center 25%/cover no-repeat;
+    transform:scale(1.05);z-index:0}
+  header::after{content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(155deg,rgba(15,32,39,.90),rgba(32,58,67,.78) 55%,rgba(44,83,100,.86))}
+  header .wrap{position:relative;z-index:2}
+  .brand{font-size:14px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--teal);font-weight:700;margin-bottom:26px}
+  header h1{font-size:clamp(36px,6vw,62px);margin-bottom:22px;
+    text-shadow:0 2px 24px rgba(0,0,0,.4)}
+  header p{font-size:clamp(17px,2.5vw,22px);color:#e3eef1;max-width:700px;margin:0 auto 36px}
+  .cta{display:inline-block;background:var(--gold);color:var(--ink);
+    font-weight:800;font-size:19px;padding:16px 34px;border-radius:40px;
+    text-decoration:none;transition:transform .15s;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+  .cta:hover{transform:translateY(-2px)}
+  .cta.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);margin-left:10px;box-shadow:none}
+
+  /* PROBLEM */
+  .problem{background:#16323c;text-align:center}
+  .problem h2{font-size:clamp(26px,4vw,38px);margin-bottom:20px}
+  .problem p{font-size:19px;color:#cfe1e6;max-width:700px;margin:0 auto}
+  .problem b{color:#fff}
+
+  /* STEPS */
+  .steps h2{text-align:center;font-size:clamp(26px,4vw,38px);margin-bottom:46px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:34px 26px;text-align:center}
+  .step .ico{font-size:48px;display:block;margin-bottom:16px}
+  .step h3{font-size:21px;margin-bottom:10px}
+  .step p{font-size:16px;color:#bcd2d8}
+
+  /* SPLIT (foto lateral + texto) */
+  .split{padding:0}
+  .split .row{display:flex;align-items:stretch;min-height:440px}
+  .split .ph{flex:1;background-size:cover;background-repeat:no-repeat}
+  .split .tx{flex:1;display:flex;flex-direction:column;justify-content:center;padding:64px 60px}
+  .split .tx h2{font-size:clamp(26px,4vw,36px);margin-bottom:18px}
+  .split .tx p{font-size:18px;color:#cfe1e6;margin-bottom:14px}
+  .split .tx p b{color:#fff}
+  .split.rev .row{flex-direction:row-reverse}
+  @media(max-width:760px){.split .row{flex-direction:column;min-height:0}
+    .split.rev .row{flex-direction:column}
+    .split .ph{min-height:300px}.split .tx{padding:48px 24px}}
+
+  /* PRICE */
+  .price{background:var(--gold);color:var(--ink);text-align:center}
+  .price h2{font-size:clamp(28px,5vw,44px);margin-bottom:14px}
+  .price .lead{font-size:21px;font-weight:600;max-width:660px;margin:0 auto 30px}
+  .pills{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .pill{background:rgba(20,50,59,.1);border:2px solid var(--ink);border-radius:16px;
+    padding:18px 24px;font-weight:700;font-size:18px}
+
+  /* NEED */
+  .need ul{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:14px}
+  .need li{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 20px;font-size:16px;display:flex;gap:14px;align-items:flex-start;line-height:1.45}
+  .need li .c{color:var(--teal);font-weight:800;flex-shrink:0;font-size:19px}
+
+  /* NOTE 5 años */
+  .note{background:#16323c}
+  .note .box{max-width:700px;margin:0 auto;border-left:4px solid var(--gold);
+    padding:18px 26px;background:rgba(255,212,94,.07);border-radius:0 12px 12px 0}
+  .note h3{font-size:20px;margin-bottom:8px;color:var(--gold)}
+  .note p{font-size:16px;color:#cfe1e6}
+
+  /* ABOUT */
+  .about{background:#13262e}
+  .about .inner{display:flex;gap:44px;align-items:center;max-width:860px;margin:0 auto}
+  .about img{width:260px;height:320px;object-fit:cover;border-radius:20px;
+    border:1px solid var(--line);flex-shrink:0}
+  .about h2{font-size:clamp(24px,4vw,34px);margin-bottom:16px}
+  .about p{font-size:17px;color:#cfe1e6;margin-bottom:14px}
+  .about p b{color:#fff}
+  @media(max-width:680px){.about .inner{flex-direction:column;text-align:center}
+    .about img{width:220px;height:260px}}
+
+  /* DOWNLOADS */
+  .dl h2{text-align:center;font-size:clamp(26px,4vw,38px);margin-bottom:14px}
+  .dl .sub{text-align:center;color:#bcd2d8;margin-bottom:40px}
+  .dlgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:740px;margin:0 auto}
+  .doc{background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:32px;text-align:center}
+  .doc .ico{font-size:44px;display:block;margin-bottom:14px}
+  .doc h3{font-size:19px;margin-bottom:8px}
+  .doc p{font-size:15px;color:#bcd2d8;margin-bottom:20px}
+  .doc a{display:inline-block;background:var(--teal);color:var(--ink);font-weight:700;
+    padding:12px 24px;border-radius:30px;text-decoration:none;font-size:15px}
+
+  /* CONTACT */
+  .contact{position:relative;text-align:center;overflow:hidden}
+  .contact::before{content:"";position:absolute;inset:0;
+    background:url("img/m-cantante.jpg") center 30%/cover no-repeat;z-index:0}
+  .contact::after{content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(155deg,rgba(32,58,67,.92),rgba(44,83,100,.88))}
+  .contact .wrap{position:relative;z-index:2}
+  .contact h2{font-size:clamp(28px,5vw,42px);margin-bottom:18px}
+  .contact p{font-size:19px;color:#e3eef1;margin-bottom:32px}
+
+  footer{background:#0c1a20;text-align:center;padding:36px 0;font-size:13px;color:#7d97a0}
+  @media(max-width:680px){.grid3{grid-template-columns:1fr}.gal{grid-template-columns:repeat(2,1fr)}.dlgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Toni Mateos · Groove Factory Studios</div>
+    <h1>¿Tienes grabaciones que <span class="hi">no estás cobrando</span>?</h1>
+    <p>Si eres músico de sesión, es muy probable que tengas canciones publicadas que nunca se registraron en la AIE. Eso es dinero tuyo que no estás cobrando. Nosotros las encontramos y las registramos por ti.</p>
+    <a class="cta" href="#contacto">Quiero saber si tengo derechos sin cobrar</a>
+  </div>
+</header>
+
+<section class="split">
+  <div class="row">
+    <div class="ph" style="background-image:url('img/m-cantante.jpg');background-position:left center"></div>
+    <div class="tx">
+      <h2>Miles de euros que no llegan a su dueño</h2>
+      <p>Cada vez que una grabación en la que participaste se emite, vende o reproduce, genera <b>derechos de remuneración</b> que gestiona la AIE.</p>
+      <p>Pero solo se reparten si la interpretación está <b>declarada</b>. La mayoría de músicos de sesión nunca declaró la suya — por desconocimiento o por pereza. <b>Ese dinero sigue ahí, esperándote.</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <h2>Cómo funciona</h2>
+    <div class="grid3">
+      <div class="step"><span class="ico">🔍</span><h3>1. Investigamos</h3><p>Rastreamos discografías, créditos, emails y archivos para encontrar tus grabaciones no declaradas. <b>Gratis y sin compromiso.</b></p></div>
+      <div class="step"><span class="ico">✍️</span><h3>2. Registramos</h3><p>Preparamos y presentamos las declaraciones ante la AIE en tu nombre, con las pruebas de tu participación.</p></div>
+      <div class="step"><span class="ico">💶</span><h3>3. Cobras</h3><p>La AIE te liquida los derechos que te corresponden, directamente en tu cuenta de socio.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="split rev">
+  <div class="row">
+    <div class="ph" style="background-image:url('img/m-duo.jpg');background-position:center"></div>
+    <div class="tx">
+      <h2>Da igual a qué te dediques</h2>
+      <p>Instrumentistas, cantantes, coros, vientos, cuerda, percusión, programadores… <b>si participaste en una grabación que se publicó, generaste derechos.</b></p>
+      <p>Y, casi seguro, una buena parte de ellos <b>sigue sin cobrarse.</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="price">
+  <div class="wrap">
+    <h2>¿Cuánto cuesta? Nada por adelantado.</h2>
+    <div class="lead">Hacemos una investigación previa <b>totalmente gratuita</b>. Si no hay nada que registrar, no pagas nada. Solo cobramos <b>si tú cobras</b>.</div>
+    <div class="pills">
+      <div class="pill">🎁 Investigación GRATIS</div>
+      <div class="pill">🤝 30 % solo a éxito</div>
+      <div class="pill">🚫 Sin recuperación, sin coste</div>
+    </div>
+  </div>
+</section>
+
+<section class="split need">
+  <div class="row">
+    <div class="ph" style="background-image:url('img/m-bajista.jpg');background-position:left center"></div>
+    <div class="tx">
+      <h2>¿Qué necesitas para empezar?</h2>
+      <ul>
+        <li><span class="c">✓</span><span>Ser socio de la AIE (o querer darte de alta — te ayudamos con el trámite).</span></li>
+        <li><span class="c">✓</span><span>Poder <b>acreditar tu participación</b>: contratos, nóminas o facturas, créditos en los discos, emails, conversaciones de WhatsApp… cualquier prueba razonable sirve.</span></li>
+        <li><span class="c">✓</span><span>Firmar un sencillo contrato de servicios y un poder para gestionar el registro en tu nombre.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="note">
+  <div class="wrap">
+    <div class="box">
+      <h3>Con total transparencia: solo los últimos 5 años</h3>
+      <p>Por ley (art. 177 de la Ley de Propiedad Intelectual), la AIE solo abona los derechos de los <b>cinco años anteriores</b>; lo anterior prescribe. Por eso conviene <b>no esperar</b>: cada año que pasa, se pierde un año de derechos recuperables.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="inner">
+      <img src="img/toni.webp" alt="Toni Mateos en su estudio">
+      <div>
+        <h2>Quién está detrás</h2>
+        <p>Soy <b>Toni Mateos</b>, baterista y músico de sesión. He grabado en cientos de producciones, programas de televisión y discos.</p>
+        <p>Cuando revisé mi propio repertorio, descubrí <b>682 grabaciones publicadas que nunca había declarado</b> en la AIE. Desarrollé un método para encontrarlas y registrarlas — y ahora lo pongo a tu disposición.</p>
+        <p>No es teoría: es exactamente lo que hice por mí mismo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dl">
+  <div class="wrap">
+    <h2>Documentos</h2>
+    <p class="sub">Descarga, lee con calma y, si te encaja, los firmamos.</p>
+    <div class="dlgrid">
+      <div class="doc">
+        <span class="ico">📄</span>
+        <h3>Contrato de servicios</h3>
+        <p>Prestación de servicios a éxito (30 %), con investigación previa gratuita.</p>
+        <a href="descargas/contrato_servicios_AIE.pdf" download>Descargar PDF</a>
+      </div>
+      <div class="doc">
+        <span class="ico">📝</span>
+        <h3>Poder de representación</h3>
+        <p>Autorización para gestionar el registro en la AIE en tu nombre.</p>
+        <a href="descargas/poder_representacion_AIE.pdf" download>Descargar PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <h2>Veámoslo juntos, sin compromiso</h2>
+    <p>Escríbeme y hacemos la investigación gratuita. Si hay derechos que recuperar, te lo digo claro.</p>
+    <a class="cta" href="https://wa.me/34670605604?text=Hola%20Toni,%20quiero%20saber%20si%20tengo%20derechos%20sin%20cobrar%20en%20la%20AIE">📲 Escríbeme por WhatsApp</a>
+    <a class="cta ghost" href="mailto:info@declararaie.es">✉️ Enviar email</a>
+  </div>
+</section>
+
+<footer>
+  Groove Factory Studios, S.L. · CIF B42915165 · Mataró (Barcelona)<br>
+  Servicio de recuperación de derechos de propiedad intelectual para intérpretes.<br>
+  <span style="opacity:.7">Servicio independiente. No estamos afiliados ni asociados a AIE (Sociedad de Artistas Intérpretes o Ejecutantes de España); actuamos en representación del músico ante dicha entidad.</span>
+</footer>
+
+</body>
+</html>
