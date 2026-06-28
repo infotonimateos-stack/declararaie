@@ -121,6 +121,16 @@
   .contact h2{font-size:clamp(28px,5vw,42px);margin-bottom:18px}
   .contact p{font-size:19px;color:#e3eef1;margin-bottom:32px}
 
+  /* CTA extra en banda precio */
+  .price .cta2{display:inline-block;margin-top:32px;background:#14323b;color:#fff;font-weight:800;
+    font-size:19px;padding:16px 36px;border-radius:40px;text-decoration:none;transition:transform .15s}
+  .price .cta2:hover{transform:translateY(-2px)}
+  /* Botón flotante WhatsApp */
+  .wafab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:10px;
+    background:#25D366;color:#fff;font-weight:800;font-size:17px;padding:14px 22px;border-radius:50px;
+    text-decoration:none;box-shadow:0 8px 26px rgba(0,0,0,.4)}
+  .wafab .ic{font-size:22px;line-height:1}
+  @media(max-width:680px){.wafab .lbl{display:none}.wafab{padding:16px;right:16px;bottom:16px}}
   footer{background:#0c1a20;text-align:center;padding:36px 0;font-size:13px;color:#7d97a0}
   @media(max-width:680px){.grid3{grid-template-columns:1fr}.gal{grid-template-columns:repeat(2,1fr)}.dlgrid{grid-template-columns:1fr}}
 </style>
@@ -132,7 +142,7 @@
     <div class="brand">Groove Factory Studios</div>
     <h1>¿Tienes grabaciones que <span class="hi">no estás cobrando</span>?</h1>
     <p>Si eres músico de sesión, es muy probable que tengas canciones publicadas que nunca se registraron en la AIE. Eso es dinero tuyo que no estás cobrando. Nosotros las encontramos y las registramos por ti.</p>
-    <a class="cta" href="#contacto">Quiero saber si tengo derechos sin cobrar</a>
+    <a class="cta" href="https://wa.me/34670605604?text=Hola%2C%20quiero%20saber%20si%20tengo%20derechos%20sin%20cobrar%20en%20la%20AIE">Quiero saber si tengo derechos sin cobrar</a>
   </div>
 </header>
 
@@ -178,6 +188,7 @@
       <div class="pill">🤝 30 % de lo que recuperes</div>
       <div class="pill">🚫 Sin recuperación, sin coste</div>
     </div>
+    <a class="cta2" href="https://wa.me/34670605604?text=Hola%2C%20quiero%20la%20investigaci%C3%B3n%20gratuita%20de%20mis%20derechos%20en%20la%20AIE">Escríbeme y lo miramos gratis →</a>
   </div>
 </section>
 
@@ -253,6 +264,10 @@
   Servicio de recuperación de derechos de propiedad intelectual para intérpretes.<br>
   <span style="opacity:.7">Servicio independiente. No estamos afiliados ni asociados a AIE (Sociedad de Artistas Intérpretes o Ejecutantes de España); actuamos en representación del músico ante dicha entidad.</span>
 </footer>
+
+<a class="wafab" href="https://wa.me/34670605604?text=Hola%2C%20quiero%20saber%20si%20tengo%20derechos%20sin%20cobrar%20en%20la%20AIE">
+  <span class="ic">📲</span><span class="lbl">Escríbeme por WhatsApp</span>
+</a>
 
 </body>
 </html>
